@@ -1,11 +1,11 @@
 <template>
   <div class="spokesman">
     <el-carousel :interval="5000" arrow="always" indicator-position="outside" height="360px">
-      <el-carousel-item v-for="item in 5" :key="item">
+      <el-carousel-item v-for="(item,index) in spokesman" :key="index">
         <!-- <div data-v-2509c11a="" class="swiper-slide" data-swiper-slide-index="1" style="width: 1200px;"> -->
         <img
           data-v-2509c11a
-          src="https://duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/intro/spokesman/tinrry.png"
+          :src="item.imgurl"
           class="avatar"
         />
         <div data-v-2509c11a class="content-wrapper">
@@ -14,10 +14,10 @@
             src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/intro/spokesman/quote.png"
             class="icon"
           />
-          <div data-v-2509c11a class="brief">短书是国内非常优秀的SaaS系统，特别是针对烘焙行业进行了高度的定制，体验很棒，非常适合我们烘焙培训机构使用。</div>
+          <div data-v-2509c11a class="brief" v-text="item.title"></div>
           <div data-v-2509c11a class="name-wrapper">
-            <span data-v-2509c11a class="name">—— 甜菜</span>
-            <span data-v-2509c11a class="tag">Tinrry+烘焙联合创始人</span>
+            <span data-v-2509c11a class="name" v-text="item.name"> </span>
+            <span data-v-2509c11a class="tag" v-text="item.tag"></span>
           </div>
         </div>
         <!-- </div> -->
@@ -25,6 +25,21 @@
     </el-carousel>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      spokesman:[]
+    }
+  },
+  async created () {
+    const spokesman= await this.$axios('https://www.easy-mock.com/mock/5d478aca378f4607c6ba0f54/');
+    this.spokesman= spokesman.data.data
+    
+  }
+}
+</script>
+
 <style>
 .avatar{
   position: absolute;
