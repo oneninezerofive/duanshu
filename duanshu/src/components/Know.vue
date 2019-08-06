@@ -380,11 +380,26 @@
           <p>拼团</p>
         </div>
       </div>
+      <!-- 轮播图 -->
       <div id="slideRoll" class="slide-wrap">
         <div class="slide-inner">
           <div class="slide-block"></div>
-          <div class="slide-item-list">
-            <div class="flexbox-center roll-inner" style="left: 0px; transition: all 0ms ease 0s;">
+          <!-- <div class="slide-item-list"> -->
+          <!-- -- -->
+          <el-carousel  :interval="4000" arrow="never">
+            <el-carousel-item v-for="item in 6" :key="item">
+              <!-- <div class="slide-item"> -->
+              <img
+                data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
+                src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
+                lazy="loaded"
+                style="transition: all 0ms ease 0s;"
+              />
+              <!-- </div> -->
+            </el-carousel-item>
+          </el-carousel>
+          <!-- -- -->
+          <!-- <div class="flexbox-center roll-inner" style="left: 0px; transition: all 0ms ease 0s;">
               <div class="slide-item">
                 <img
                   data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
@@ -473,11 +488,38 @@
                   style="transition: all 0ms ease 0s;"
                 />
               </div>
-            </div>
-          </div>
+          </div>-->
+          <!-- </div> -->
           <div class="slide-block hollow"></div>
         </div>
       </div>
     </div>
   </div>
 </template>
+<style>
+/* .roll-inner {
+  transition: all 600ms ease-in-out;
+} */
+/* .el-carousel{
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    width: 1230px;
+    height: 452px;
+    overflow-x: hidden;
+} */
+.el-carousel__item>img{
+ width: 280px;
+ height: inherit;
+}
+.knowledge-container .layer-5 .slide-wrap .slide-inner .slide-block{
+  z-index: 2;
+}
+.knowledge-container .layer-5 .slide-wrap .slide-inner .el-carousel__item img {
+    width: 280px;
+    height: inherit;
+    -webkit-transition: all 1000ms;
+    transition: all 9000ms;
+    margin-top: 12px;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div class="spokesman">
-    <el-carousel :interval="5000" arrow="always" indicator-position="outside" height="360px">
+    <el-carousel :interval="3000" arrow="always" indicator-position="outside" height="360px">
       <el-carousel-item v-for="(item,index) in spokesman" :key="index">
         <!-- <div data-v-2509c11a="" class="swiper-slide" data-swiper-slide-index="1" style="width: 1200px;"> -->
         <img
