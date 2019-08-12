@@ -380,97 +380,18 @@
           <p>拼团</p>
         </div>
       </div>
+      <!-- 轮播图 -->
       <div id="slideRoll" class="slide-wrap">
         <div class="slide-inner">
           <div class="slide-block"></div>
-          <div class="slide-item-list">
-            <div class="flexbox-center roll-inner" style="left: 0px; transition: all 0ms ease 0s;">
-              <div class="slide-item">
+          <div class="slide-item-list" @mouseover="stop" @mouseleave="play">
+            <div class="flexbox-center roll-inner" :style="containerStyle">
+              <div class="slide-item" v-for="(item,index) in imgs" :key="index" >
                 <img
                   data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
+                  :src="item"
                   lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/mbcard.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/mbcard.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item active">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/limit.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/limit.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/inivite.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/inivite.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/fightgroup.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/fightgroup.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/mbcard.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/mbcard.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/limit.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/limit.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/inivite.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/inivite.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/fightgroup.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/fightgroup.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
-                />
-              </div>
-              <div class="slide-item">
-                <img
-                  data-src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
-                  src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/knowledge/layer-5/generalize.png"
-                  lazy="loaded"
-                  style="transition: all 0ms ease 0s;"
+                  :style="{width:imgWidth+'px'}"
                 />
               </div>
             </div>
@@ -481,3 +402,112 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: "slide-item-list",
+  props: {
+     initialSpeed: {
+      type: Number,
+      default: 30
+    },
+    initialInterval: {
+      type: Number,
+      default: 3
+    }
+  },
+  data() {
+    return {
+      imgs: [],
+      imgWidth:260,
+      distance: -260,
+      transitionEnd: true,
+      speed: this.initialSpeed,
+      currentIndex:1,
+      active:'active'
+    };
+  },
+  async created() {
+    const imgs = await this.$axios(
+      "https://www.easy-mock.com/mock/5d48d6e867bb5574f3cd36a5/imgs/"
+    );
+    this.imgs = imgs.data.data;
+  },
+  computed: {
+    containerStyle() {
+      return {
+        transform: `translate3d(${this.distance}px, 0, 0)`
+      };
+    },
+    interval() {
+      return this.initialInterval * 1000
+    }
+  },
+   mounted() {
+    this.init()
+  },
+  methods:{
+    init(){
+      this.play();
+      window.onblur =function(){
+        this.stop()
+      }.bind(this);
+      window.onfocus =function(){
+        this.play()
+      }.bind(this)
+    },
+     move(offset, direction, speed) {
+      
+      if (!this.transitionEnd) return
+      this.transitionEnd = false
+      direction === -1 ? this.currentIndex += offset/260 : this.currentIndex -= offset/260
+      // this.currentIndex=parseInt(this.currentIndex);
+      
+      if (this.currentIndex >8) this.currentIndex = 3
+      if (this.currentIndex < 3) this.currentIndex = 8
+
+      const destination = this.distance + offset * direction
+      this.animate(destination, direction, speed)
+    },
+    animate(des, direc, speed) {
+      if (this.temp) {
+        window.clearInterval(this.temp);
+        this.temp = null ;
+      }
+      this.temp = window.setInterval(() => {
+        if ((direc === -1 && des < this.distance) || (direc === 1 && des > this.distance)) {
+          this.distance += speed * direc
+        } else {
+          this.transitionEnd = true
+          window.clearInterval(this.temp)
+          this.distance = des
+          if (des < -1560) this.distance = 0
+          if (des > 0) this.distance = -1560
+        }
+      }, 20)
+    },
+    play() {
+      if (this.timer) {
+        window.clearInterval(this.timer)
+        this.timer = null
+      }
+      this.timer = window.setInterval(() => {
+        this.move(245, -1, this.speed);
+        // this.currentIndex.add('active');
+      // console.log(this);
+      }, this.interval)
+    },
+    stop() {
+      window.clearInterval(this.timer)
+      this.timer = null
+    }
+  }
+};
+</script>
+
+<style>
+.knowledge-container .layer-5 .slide-wrap .slide-inner .slide-block{
+  z-index: 2;
+  opacity: 0.6;
+}
+/* .knowledge-container .layer-5 .slide-wrap .slide-inner .slide-block */
+</style>
