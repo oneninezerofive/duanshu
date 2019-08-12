@@ -1,6 +1,6 @@
 <template>
     <ul class="infinite-list" v-infinite-scroll="load" style="overflow:auto">
-        <li v-for="i in count" class="infinite-list-item">{{ i }}</li>
+        <li v-for="(i,index) in count" :key="index" class="infinite-list-item">{{ i }}</li>
     </ul>
 </template>
 <script>
