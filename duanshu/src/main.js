@@ -6,13 +6,16 @@ import router from './router'
 import store from './store'
 import {
   Carousel,
-  CarouselItem
+  CarouselItem,
+  InfiniteScroll
+
 } from 'element-ui'
 
 Vue.config.productionTip = false
 Vue.prototype.$axios = axios;
 Vue.use(CarouselItem)
 Vue.use(Carousel)
+Vue.use(InfiniteScroll)
 new Vue({
   router,
   store,

@@ -144,31 +144,31 @@
             <!---->
           </li>
           <li class="menu-item">
-            <a href="//www.duanshu.com/price" title="资费说明" class="link">资费说明</a>
+            <a href="#/overview" title="资费说明" class="link">资费说明</a>
             <!---->
             <!---->
             <!---->
             <!---->
           </li>
           <li class="menu-item rel">
-            <a href="javascript:void(0);" title="短书学院" class="link">短书学院</a>
+            <a  title="短书学院" class="link">短书学院</a>
             <span class="arrow"></span>
             <!---->
             <!---->
             <div class="dropdown-board-s">
               <a
-                href="//www.duanshu.com/news_edu"
+               href="#/school"
                 title="在线教育资讯"
                 target="_blank"
                 class="item"
               >在线教育资讯</a>
               <a
-                href="//www.duanshu.com/news_know"
+               href="#/school"
                 title="知识付费资讯"
                 target="_blank"
                 class="item"
               >知识付费资讯</a>
-              <a href="https://school.duanshu.com" title="短书学院" target="_blank" class="item">短书学院</a>
+              <a href="#/school" title="短书学院" target="_blank" class="item">短书学院</a>
             </div>
           </li>
           <li class="menu-item">
