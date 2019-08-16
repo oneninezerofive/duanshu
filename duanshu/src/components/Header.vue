@@ -46,7 +46,7 @@
                       <span class="plan-brief">重视每一个内容创作者的价值</span>
                     </span>
                   </a>
-                  <a href="https://education.duanshu.com/edu" title="在线网络课堂" class="plan-item link">
+                  <a href="#/knowledge" title="在线网络课堂" class="plan-item link">
                     <img
                       src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/header/education.png"
                       alt
@@ -60,7 +60,7 @@
                       <span class="plan-brief">更懂移动互联网的线上教育解决方案</span>
                     </span>
                   </a>
-                  <a href="//www.duanshu.com/enterprise" title="企业内训系统" class="plan-item link">
+                  <a href="#/knowledge" title="企业内训系统" class="plan-item link">
                     <img
                       src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/header/company.png"
                       alt
@@ -79,7 +79,7 @@
               <div class="board-group">
                 <div class="group-title">业务解决方案</div>
                 <div class="plan-wrapper">
-                  <a href="//www.duanshu.com/storeshop" title="内容电商平台" class="plan-item link">
+                  <a href="#/knowledge" title="内容电商平台" class="plan-item link">
                     <img
                       src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/header/store.png"
                       alt
@@ -93,7 +93,7 @@
                       <span class="plan-brief">内容创作者自己的内容电商小店</span>
                     </span>
                   </a>
-                  <a href="//www.duanshu.com/video" title="课堂直播系统" class="plan-item link">
+                  <a href="#/knowledge" title="课堂直播系统" class="plan-item link">
                     <img
                       src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/header/live.png"
                       alt
@@ -107,7 +107,7 @@
                       <span class="plan-brief">专注知识传播和教育培训的直播技术服务</span>
                     </span>
                   </a>
-                  <a href="//www.duanshu.com/applet" title="小程序生成平台" class="plan-item link">
+                  <a href="#/knowledge" title="小程序生成平台" class="plan-item link">
                     <img
                       src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/header/applet.png"
                       alt
@@ -121,7 +121,7 @@
                       <span class="plan-brief">打造微信移动教育生态闭环</span>
                     </span>
                   </a>
-                  <a href="//www.duanshu.com/weike" title="A.I.互动课堂" class="plan-item link">
+                  <a href="#/knowledge" title="A.I.互动课堂" class="plan-item link">
                     <img
                       src="//duanshu-web.oss-cn-beijing.aliyuncs.com/static/image/global/header/weike.png"
                       alt
@@ -172,14 +172,14 @@
             </div>
           </li>
           <li class="menu-item">
-            <a href="//www.duanshu.com/aboutme" title="关于我们" class="link">关于我们</a>
+            <a href="#/aboutme" title="关于我们" class="link">关于我们</a>
             <!---->
             <!---->
             <!---->
             <!---->
           </li>
           <li class="menu-item">
-            <a href="//www.duanshu.com/agency" title="渠道代理" class="link">渠道代理</a>
+            <a href="#/agency" title="渠道代理" class="link">渠道代理</a>
             <!---->
             <!---->
             <!---->
@@ -187,8 +187,8 @@
           </li>
         </ul>
         <div class="controls">
-          <a href="http://my.duanshu.com/login" class="control-btn login">登录</a>
-          <a target="_blank" href="//www.duanshu.com/register" class="control-btn register">注册</a>
+          <a href="#/login" class="control-btn login">登录</a>
+          <a target="_blank" href="#/register" class="control-btn register">注册</a>
           <!---->
         </div>
       </div>

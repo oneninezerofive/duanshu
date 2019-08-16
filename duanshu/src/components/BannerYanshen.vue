@@ -61,7 +61,7 @@ export default {
       "https://www.easy-mock.com/mock/5d47cf0bb94f1f053cf8cfcb/yanshen/"
     );
     this.yanshen = yanshen.data.data;
-    console.log(yanshen.data.data);
+    // console.log(yanshen.data.data);
   }
 };
 </script>
